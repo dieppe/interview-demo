@@ -1,32 +1,63 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.App {
+  background-color: #FCFCFF;
+  height: 100vh;
+  padding: 10vh 10vw;
+  color: #252522;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.App-form-group {
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 0.1px solid #CCCCCC;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-form-group-title {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+.primary-label {
+  font-size: 16px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.secondary-label {
+  font-size: 14px;
+  margin-left: 3px;
+  margin-right: 2vw;
+}
+
+.radio-group {
+  margin-top: 5px;
+}
+
+.App-form {
+  width: 300px;
+  padding: 2vh 2vw 4vh;
+  background-color: #FFFFFF;
+  border-color: #CCCCCC;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.text-input {
+  width: 100%;
+  height: 30px;
 }
