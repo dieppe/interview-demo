@@ -14,7 +14,7 @@ function findAmbiguousLetters (passportID) {
   const passportIDLetters = passportID.split('');
   const wrongLetters = passportIDLetters.reduce(
     (acc, letter) => {
-      if (!UNAMBIGUOUS_LETTERS.contains(letter)) {
+      if (!UNAMBIGUOUS_LETTERS.includes(letter) && !acc.includes(letter)) {
         acc = [...acc, letter];
       }
       return acc;
@@ -29,7 +29,7 @@ function validateBrazil (passportID) {
     return {
       valid: false,
       error: ERRORS.WRONG_LENGTH,
-      detail: [ 'Should be 8 characters' ],
+      detail: 8,
     };
   }
   const firstTwo = passportID.substring(0, 2);
@@ -53,10 +53,10 @@ function validateFrance (passportID) {
     return {
       valid: false,
       error: ERRORS.WRONG_LENGTH,
-      detail: [ 'Should be 9 characters' ],
+      detail: 9,
     };
   }
-  const ambiguousLetters = findAmbiguousLetters(passportID.replace(/[0-9]/, ''));
+  const ambiguousLetters = findAmbiguousLetters(passportID.replace(/[0-9]*/, ''));
   if (ambiguousLetters.length === 0) {
     return { valid: true };
   }
@@ -64,10 +64,10 @@ function validateFrance (passportID) {
 }
 
 export function validate (country, passportID) {
-  if (country === 'Brazil') {
+  if (country === 'brazil') {
     return validateBrazil(passportID);
   }
-  else if (country === 'France') {
+  else if (country === 'france') {
     return validateFrance(passportID);
   }
   return { valid: false, error: ERRORS.NO_COUNTRY_SELECTED };
